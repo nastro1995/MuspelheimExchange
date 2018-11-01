@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\
+C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Release\
 MuspelheimExchange
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\App.xaml
 2-1803157055
 
 611395101
-14-1616433823
+14859516413
 ItemWindow.xaml;MainWindow.xaml;
 
-False
+True
 

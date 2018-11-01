@@ -8,9 +8,7 @@
         Title="ItemWindow" Height="420" Width="420">
     <Grid x:Name="Item_Grid">
         <StackPanel>
-            <TextBlock Text="{Binding Icon}"/>
-            <Separator/>
-            <TextBlock Text="{Binding Icon_Large}"/>
+            <Image x:Name="Image_Display" Source="{Binding Icon}" Height="50"/>
             <Separator/>
             <TextBlock Text="{Binding Id}"/>
             <Separator/>

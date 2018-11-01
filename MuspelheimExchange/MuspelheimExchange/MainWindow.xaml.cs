@@ -50,41 +50,35 @@ namespace MuspelheimExchange
 
         private void ResetDisplay(int sortMode = 0)
         {
-            if (Display != null && Display.ItemsSource != null)
+            if (sortMode >= 0 && sortMode <= 2)
             {
-                if (sortMode >= 0 && sortMode <= 2)
+                if (sortMode == 0)
                 {
-                    if (sortMode == 0)
-                    {
-                        Display.ItemsSource = ItemInfos;
-                    }
-                    else if (sortMode == 1)
-                    {
-                        Display.ItemsSource = ItemInfos.OrderBy(i => i.Name);
-                    }
-                    else if (sortMode == 2)
-                    {
-                        Display.ItemsSource = ItemInfos.OrderByDescending(i => i.Name);
-                    }
+                    Display.ItemsSource = ItemInfos;
+                }
+                else if (sortMode == 1)
+                {
+                    Display.ItemsSource = ItemInfos.OrderBy(i => i.Name);
+                }
+                else if (sortMode == 2)
+                {
+                    Display.ItemsSource = ItemInfos.OrderByDescending(i => i.Name);
                 }
             }
         }
 
         private void Search_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (Display != null && Display.ItemsSource != null)
+            if (Search_Input.Text is string input)
             {
-                if (Search_Input.Text is string input)
+                if (input != "")
                 {
-                    if (input != "")
-                    {
-                        List<Basic_ItemInfo> searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input)));
-                        Display.ItemsSource = searchResults;
-                    }
-                    else
-                    {
-                        ResetDisplay(1);
-                    }
+                    List<Basic_ItemInfo> searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input)));
+                    Display.ItemsSource = searchResults;
+                }
+                else
+                {
+                    ResetDisplay(1);
                 }
             }
         }
