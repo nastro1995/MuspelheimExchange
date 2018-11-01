@@ -9,4 +9,7 @@ The solution has 2 projects inside:
 1) WPF Application.
 2) Custom API to interact with OSRS GE item database. 
 
+C# Libraries used:
+Newtensoft.JSON (https://github.com/JamesNK/Newtonsoft.Json)
+
 *Temporary description*
