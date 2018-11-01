@@ -8,25 +8,50 @@
         Title="ItemWindow" Height="420" Width="420">
     <Grid x:Name="Item_Grid">
         <StackPanel>
-            <Image x:Name="Image_Display" Source="{Binding Icon}" Height="50"/>
+            <WrapPanel>
+                <TextBlock Text="Name:" Margin="0,0,4,0"/>
+                <TextBlock Text="{Binding Name}"/>
+            </WrapPanel>
             <Separator/>
-            <TextBlock Text="{Binding Id}"/>
+            <Image Source="{Binding Icon}" Height="50" Stretch="Uniform"/>
             <Separator/>
-            <TextBlock Text="{Binding Type}"/>
+            <WrapPanel>
+                <TextBlock Text="Type:" Margin="0,0,4,0"/>
+                <TextBlock Text="{Binding Type}"/>
+                <Image Source="{Binding TypeIcon}" Height="25" Stretch="Uniform"/>
+            </WrapPanel>
             <Separator/>
-            <TextBlock Text="{Binding TypeIcon}"/>
+            <WrapPanel>
+                <TextBlock Text="Description:" Margin="0,0,4,0"/>
+                <TextBlock Text="{Binding Description}"/>
+            </WrapPanel>
             <Separator/>
-            <TextBlock Text="{Binding Name}"/>
+            <StackPanel>
+                <WrapPanel>
+                    <TextBlock Text="Current Trend:" Margin="0,0,4,0"/>
+                    <TextBlock Text="{Binding Current.Trend}"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Current Price:" Margin="0,0,4,0"/>
+                    <TextBlock Text="{Binding Current.Price}"/>
+                </WrapPanel>
+            </StackPanel>
             <Separator/>
-            <TextBlock Text="{Binding Description}"/>
+            <StackPanel>
+                <WrapPanel>
+                    <TextBlock Text="Today Trend:" Margin="0,0,4,0"/>
+                    <TextBlock Text="{Binding Today.Trend}"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Today Price:" Margin="0,0,4,0"/>
+                    <TextBlock Text="{Binding Today.Price}"/>
+                </WrapPanel>
+            </StackPanel>
             <Separator/>
-            <TextBlock Text="{Binding Current.Trend}"/>
-            <TextBlock Text="{Binding Current.Price}"/>
-            <Separator/>
-            <TextBlock Text="{Binding Today.Trend}"/>
-            <TextBlock Text="{Binding Today.Price}"/>
-            <Separator/>
-            <TextBlock Text="{Binding Members}"/>
+            <WrapPanel>
+                <TextBlock Text="Member:" Margin="0,0,4,0"/>
+                <TextBlock Text="{Binding Members}"/>
+            </WrapPanel>
             <Separator/>
             <TextBlock Text="{Binding Day30.Trend}"/>
             <TextBlock Text="{Binding Day30.Change}"/>
