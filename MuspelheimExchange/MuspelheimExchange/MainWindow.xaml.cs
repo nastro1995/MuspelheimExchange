@@ -96,7 +96,10 @@ namespace MuspelheimExchange
         {
             if (Display.SelectedItem is Basic_ItemInfo item_info)
             {
-                ItemWindow iw = new ItemWindow(item_info);
+                ItemWindow iw = new ItemWindow(item_info)
+                {
+                    Owner = this
+                };
                 iw.Show();
             }
         }

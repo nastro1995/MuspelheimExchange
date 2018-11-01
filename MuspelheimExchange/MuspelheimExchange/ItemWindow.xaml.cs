@@ -38,6 +38,8 @@ namespace MuspelheimExchange
                 CurrentItem = GE.GetItem(Item_Info.Id);
                 if (CurrentItem != null)
                 {
+                    Title += " - " + CurrentItem.Name;
+                    Icon = new BitmapImage(new Uri(CurrentItem.Icon));
                     Item_Grid.DataContext = CurrentItem;
                 }
             }
