@@ -1,0 +1,9 @@
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\bin\Debug\MuspelScape.dll
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\bin\Debug\MuspelScape.pdb
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\bin\Debug\Newtonsoft.Json.dll
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\bin\Debug\Newtonsoft.Json.xml
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csprojAssemblyReference.cache
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csproj.CoreCompileInputs.cache
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csproj.CopyComplete
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.dll
+F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.pdb

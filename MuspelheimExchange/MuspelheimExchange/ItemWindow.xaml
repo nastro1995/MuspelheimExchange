@@ -1,0 +1,43 @@
+﻿<Window x:Class="MuspelheimExchange.ItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MuspelheimExchange"
+        mc:Ignorable="d"
+        Title="ItemWindow" Height="420" Width="420">
+    <Grid x:Name="Item_Grid">
+        <StackPanel>
+            <TextBlock Text="{Binding Icon}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Icon_Large}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Id}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Type}"/>
+            <Separator/>
+            <TextBlock Text="{Binding TypeIcon}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Name}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Description}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Current.Trend}"/>
+            <TextBlock Text="{Binding Current.Price}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Today.Trend}"/>
+            <TextBlock Text="{Binding Today.Price}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Members}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Day30.Trend}"/>
+            <TextBlock Text="{Binding Day30.Change}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Day90.Trend}"/>
+            <TextBlock Text="{Binding Day90.Change}"/>
+            <Separator/>
+            <TextBlock Text="{Binding Day180.Trend}"/>
+            <TextBlock Text="{Binding Day180.Change}"/>
+        </StackPanel>
+    </Grid>
+</Window>
