@@ -12,11 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MuspelScape;
-using MuspelScape.Models;
-using MuspelScape.Models.Catalogue;
-using MuspelScape.Models.Graphs;
-using MuspelScape.Models.Items;
+using MuspelheimExchange.Views;
 
 namespace MuspelheimExchange
 {
@@ -25,83 +21,42 @@ namespace MuspelheimExchange
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Basic_ItemInfo> ItemInfos { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
-            //List<Basic_ItemInfo> itemsBasicInfo = GE.GetBasicItemsInfo();
-            //List<Basic_ItemInfo> bronzeItems = new List<Basic_ItemInfo>(
-            //    itemsBasicInfo.Where(i => i.Name.StartsWith("Bronze"))
-            //);
-            //Item bDagger = GE.GetItem(bronzeItems.Single(
-            //    i => i.Name.ToLower() == "bronze dagger").Id
-            //);
-            //CatalogueView cat1 = GE.GetCatalogue(1, 'b', 1);
-            //GraphView graph1 = GE.GetGraph(bDagger.Id);
             Loaded += MainWindow_Loaded;
+        }
+
+        public void Navigate(object content, object data = null)
+        {
+            if (data == null)
+            {
+                Root_Frame.Navigate(content);
+            }
+            else
+            {
+                Root_Frame.Navigate(content, data);
+            }
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            ItemInfos = GE.GetBasicItemsInfo();
-            ResetDisplay(1);
+            Navigate(new DashboardPage(this));
         }
 
-        private void ResetDisplay(int sortMode = 0)
+        private void Bar_Search_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (sortMode >= 0 && sortMode <= 2)
-            {
-                if (sortMode == 0)
-                {
-                    Display.ItemsSource = ItemInfos;
-                }
-                else if (sortMode == 1)
-                {
-                    Display.ItemsSource = ItemInfos.OrderBy(i => i.Name);
-                }
-                else if (sortMode == 2)
-                {
-                    Display.ItemsSource = ItemInfos.OrderByDescending(i => i.Name);
-                }
-            }
+            Navigate(new SearchPage(this));
         }
 
-        private void Search_btn_Click(object sender, RoutedEventArgs e)
+        private void Bar_BrowseCata_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (Search_Input.Text is string input)
-            {
-                if (input != "")
-                {
-                    List<Basic_ItemInfo> searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input)));
-                    Display.ItemsSource = searchResults;
-                }
-                else
-                {
-                    ResetDisplay(1);
-                }
-            }
+            Navigate(new CataloguePage(this));
         }
 
-        private void Search_Input_TextChanged(object sender, TextChangedEventArgs e)
+        private void Bar_Home_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (Search_Input.Text is string input
-                && input == "")
-            {
-                ResetDisplay(1);
-            }
-        }
-
-        private void Display_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (Display.SelectedItem is Basic_ItemInfo item_info)
-            {
-                ItemWindow iw = new ItemWindow(item_info)
-                {
-                    Owner = this
-                };
-                iw.Show();
-            }
+            Navigate(new DashboardPage(this));
         }
     }
 }
