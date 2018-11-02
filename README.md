@@ -10,7 +10,7 @@ The solution has 2 projects inside:
 2) Custom API to interact with OSRS GE item database. 
 
 C# Libraries used:
-Newtensoft.JSON (https://github.com/JamesNK/Newtonsoft.Json)
+* [Newtensoft.JSON](https://github.com/JamesNK/Newtonsoft.Json)
 
 Future Plans:
 * UI improvements
