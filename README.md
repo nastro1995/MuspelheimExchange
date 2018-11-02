@@ -12,4 +12,10 @@ The solution has 2 projects inside:
 C# Libraries used:
 Newtensoft.JSON (https://github.com/JamesNK/Newtonsoft.Json)
 
+Future Plans:
+* UI improvements
+* Being able to view hiscores
+* Custom api code for viewing hiscores
+* Many more improvements
+
 *Temporary description*
