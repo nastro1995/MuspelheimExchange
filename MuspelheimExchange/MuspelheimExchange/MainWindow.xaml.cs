@@ -27,9 +27,36 @@ namespace MuspelheimExchange
             Loaded += MainWindow_Loaded;
         }
 
+        public void Navigate(object content, object data = null)
+        {
+            if (data == null)
+            {
+                Root_Frame.Navigate(content);
+            }
+            else
+            {
+                Root_Frame.Navigate(content, data);
+            }
+        }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Root_Frame.Navigate(new SearchPage(this));
+            Navigate(new DashboardPage(this));
+        }
+
+        private void Bar_Search_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigate(new SearchPage(this));
+        }
+
+        private void Bar_BrowseCata_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigate(new CataloguePage(this));
+        }
+
+        private void Bar_Home_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigate(new DashboardPage(this));
         }
     }
 }

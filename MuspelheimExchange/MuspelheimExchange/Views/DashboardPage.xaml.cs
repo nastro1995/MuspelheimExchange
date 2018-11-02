@@ -16,20 +16,20 @@ using System.Windows.Shapes;
 namespace MuspelheimExchange.Views
 {
     /// <summary>
-    /// Interaction logic for CataloguePage.xaml
+    /// Interaction logic for DashboardPage.xaml
     /// </summary>
-    public partial class CataloguePage : Page
+    public partial class DashboardPage : Page
     {
         private MainWindow RootWindow { get; set; }
 
-        public CataloguePage(MainWindow rootWindow)
+        public DashboardPage(MainWindow rootWindow)
         {
             InitializeComponent();
             RootWindow = rootWindow;
-            Loaded += CataloguePage_Loaded;
+            Loaded += DashboardPage_Loaded;
         }
 
-        private void CataloguePage_Loaded(object sender, RoutedEventArgs e)
+        private void DashboardPage_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

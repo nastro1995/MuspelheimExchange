@@ -46,3 +46,5 @@ C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\Muspelhei
 C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Views\SearchPage.g.cs
 C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Views\CataloguePage.baml
 C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Views\SearchPage.baml
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Views\DashboardPage.g.cs
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Views\DashboardPage.baml

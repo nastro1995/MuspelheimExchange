@@ -26,9 +26,9 @@ namespace MuspelheimExchange.Views
     public partial class SearchPage : Page
     {
         private List<Basic_ItemInfo> ItemInfos { get; set; }
-        private Window CallingWindow { get; set; }
+        private MainWindow RootWindow { get; set; }
 
-        public SearchPage(Window callingWindow)
+        public SearchPage(MainWindow rootWindow)
         {
             InitializeComponent();
             //List<Basic_ItemInfo> itemsBasicInfo = GE.GetBasicItemsInfo();
@@ -40,7 +40,7 @@ namespace MuspelheimExchange.Views
             //);
             //CatalogueView cat1 = GE.GetCatalogue(1, 'b', 1);
             //GraphView graph1 = GE.GetGraph(bDagger.Id);
-            CallingWindow = callingWindow;
+            RootWindow = rootWindow;
             Loaded += SearchPage_Loaded;
         }
 
@@ -100,7 +100,7 @@ namespace MuspelheimExchange.Views
             {
                 ItemWindow iw = new ItemWindow(item_info)
                 {
-                    Owner = CallingWindow
+                    Owner = RootWindow
                 };
                 iw.Show();
             }
