@@ -7,3 +7,12 @@ F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\Musp
 F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csproj.CopyComplete
 F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.dll
 F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.pdb
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\bin\Debug\MuspelScape.dll
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\bin\Debug\MuspelScape.pdb
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csprojAssemblyReference.cache
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csproj.CoreCompileInputs.cache
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.csproj.CopyComplete
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.dll
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelScape\obj\Debug\MuspelScape.pdb
