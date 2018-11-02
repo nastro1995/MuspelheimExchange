@@ -9,6 +9,21 @@
       Title="SearchPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label Content="Start Searching:"/>
+            <TextBox x:Name="Search_Input" TextChanged="Search_Input_TextChanged"/>
+            <Button x:Name="Search_btn" Content="Search" IsDefault="True" Click="Search_btn_Click"/>
+        </StackPanel>
+        <ListView x:Name="Display" Grid.Row="1" MouseDoubleClick="Display_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

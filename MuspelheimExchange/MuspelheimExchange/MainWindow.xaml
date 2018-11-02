@@ -5,24 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MuspelheimExchange"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="Muspelheim Exchange" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label Content="Start Searching:"/>
-            <TextBox x:Name="Search_Input" TextChanged="Search_Input_TextChanged"/>
-            <Button x:Name="Search_btn" Content="Search" IsDefault="True" Click="Search_btn_Click"/>
-        </StackPanel>
-        <ListView x:Name="Display" Grid.Row="1" MouseDoubleClick="Display_MouseDoubleClick">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Frame x:Name="Root_Frame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
