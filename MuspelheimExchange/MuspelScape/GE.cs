@@ -51,7 +51,8 @@ namespace MuspelScape
             }
             catch (WebException)
             {
-                string offline_json = System.IO.File.ReadAllText(@"F:\Projects\C#\Muspelheim_Dev-OSRS\MuspelheimExchange\MuspelheimExchange\Data\osrs-offline-items.json");
+                //***offline method of loading file is temporary, subject to change***
+                string offline_json = System.IO.File.ReadAllText(@"C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\Data\osrs-offline-items.json");
                 result = JsonConvert.DeserializeObject<List<Basic_ItemInfo>>(offline_json);
 		        MessageBox.Show("You are offline!, you wont be able to view the items.", "Error!");
             }
