@@ -33,5 +33,15 @@ namespace MuspelheimExchange.Views
         {
 
         }
+
+        private void Menu_Navigate_Search_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            RootWindow.Navigate(new SearchPage(RootWindow));
+        }
+
+        private void Menu_Navigate_Catalogues_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            RootWindow.Navigate(new CataloguePage(RootWindow));
+        }
     }
 }

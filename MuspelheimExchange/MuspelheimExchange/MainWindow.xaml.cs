@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MuspelheimExchange.Views;
+using MuspelheimExchange.Windows;
 
 namespace MuspelheimExchange
 {
@@ -57,6 +58,18 @@ namespace MuspelheimExchange
         private void Bar_Home_Btn_Click(object sender, RoutedEventArgs e)
         {
             Navigate(new DashboardPage(this));
+        }
+
+        private void Bar_Settings_Options_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            OptionsWindow optionsW = new OptionsWindow(this);
+            if (optionsW.ShowDialog() == true)
+            {
+                /* Todo:
+                 * -create a few basic options
+                 * -options load from dialog window
+                 */
+            }
         }
     }
 }

@@ -13,34 +13,27 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <ToolBarPanel Grid.Row="0" Grid.Column="0" Background="DarkGray" SnapsToDevicePixels="True">
-            <ToolBar Margin="2,4" Padding="1" Background="Gray"
-                     ToolBarTray.IsLocked="True">
-                <Border BorderBrush="LightGray" BorderThickness="1" Margin="2,0"
-                        Background="DarkGray">
+        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="2"
+                Padding="4,2" Background="DarkGray">
+            <Menu Background="LightGray" Padding="2,4">
+                <MenuItem Header="Menu" Margin="6,1" Padding="6,1" Background="DarkGray" 
+                      Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="16">
                     <MenuItem x:Name="Bar_Home_Btn" Header="Home" Click="Bar_Home_Btn_Click"
-                              Foreground="WhiteSmoke" FontFamily="Times New Roman"/>
-                </Border>
-                <Border BorderBrush="LightGray" BorderThickness="1" Margin="2,0"
-                        Background="DarkGray">
+                              Background="DarkGray"/>
                     <MenuItem x:Name="Bar_Search_Btn" Header="Search" Click="Bar_Search_Btn_Click"
-                              Foreground="WhiteSmoke" FontFamily="Times New Roman"/>
-                </Border>
-                <Border BorderBrush="LightGray" BorderThickness="1" Margin="2,0"
-                        Background="DarkGray">
+                              Background="DarkGray"/>
                     <MenuItem x:Name="Bar_BrowseCata_Btn" Header="Browse Catalogue" Click="Bar_BrowseCata_Btn_Click"
-                              Foreground="WhiteSmoke" FontFamily="Times New Roman"/>
-                </Border>
-            </ToolBar>
-        </ToolBarPanel>
-        <ToolBarPanel Grid.Row="0" Grid.Column="1" SnapsToDevicePixels="True">
-            <!---->
-        </ToolBarPanel>
-        <Frame x:Name="Root_Frame" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
-               NavigationUIVisibility="Hidden" SnapsToDevicePixels="True"/>
+                              Background="DarkGray"/>
+                </MenuItem>
+                <MenuItem Header="Settings" Margin="6,1" Padding="6,1" Background="DarkGray" 
+                      Foreground="WhiteSmoke" FontFamily="Times New Roman" FontSize="16">
+                    <MenuItem x:Name="Bar_Settings_Options_Btn" Header="Options (Incomplete)" Click="Bar_Settings_Options_Btn_Click" 
+                              Background="DarkGray"/>
+                </MenuItem>
+            </Menu>
+        </Border>
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="2" Background="Azure">
+            <Frame x:Name="Root_Frame" NavigationUIVisibility="Hidden"/>
+        </Border>
     </Grid>
 </Window>
