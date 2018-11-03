@@ -51,10 +51,11 @@ namespace MuspelScape
             }
             catch (WebException)
             {
-                //***offline method of loading file is temporary, subject to change***
-                string offline_json = System.IO.File.ReadAllText(@"C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\Data\osrs-offline-items.json");
-                result = JsonConvert.DeserializeObject<List<Basic_ItemInfo>>(offline_json);
-		        MessageBox.Show("You are offline!, you wont be able to view the items.", "Error!");
+                MessageBoxResult mbResult = MessageBox.Show("Error retrieving items, press 'Yes' to retry.", "Error!", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.Yes);
+                if (mbResult == MessageBoxResult.Yes)
+                {
+                    result = GetBasicItemsInfo();
+                }
             }
             return result;
         }
@@ -76,9 +77,12 @@ namespace MuspelScape
             string url = CatalogueUrl(category, startChar, page);
             CatalogueView result = null;
             string json = MDownloader.GetJSON(url);
-            if (json.Length > 0)
+            if (json != null)
             {
-                result = JsonConvert.DeserializeObject<CatalogueView>(json);
+                if (json.Length > 0)
+                {
+                    result = JsonConvert.DeserializeObject<CatalogueView>(json);
+                }
             }
             return result;
         }

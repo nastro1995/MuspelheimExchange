@@ -8,14 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DashboardPage">
 
-    <Grid Background="WhiteSmoke">
+    <Grid Background="Gray">
         <Border HorizontalAlignment="Center" VerticalAlignment="Center" 
                 BorderBrush="Black" BorderThickness="1" Background="DarkGray">
-            <StackPanel>
+            <StackPanel Margin="5">
                 <Label Content="Main Menu" HorizontalAlignment="Center" FontSize="18" FontFamily="Times New Roman"/>
                 <Button x:Name="Menu_Navigate_Search_Btn" Content="Search OSRS Items" Click="Menu_Navigate_Search_Btn_Click"
                         Margin="4,2" Padding="3" FontFamily="Times New Roman"/>
-                <Button x:Name="Menu_Navigate_Catalogues_Btn" Content="Browse OSRS Item Catalogues" Click="Menu_Navigate_Catalogues_Btn_Click"
+                <Button x:Name="Menu_Navigate_Catalogues_Btn" Content="Browse OSRS Item Catalogues (Incomplete)" Click="Menu_Navigate_Catalogues_Btn_Click"
+                        Margin="4,2" Padding="3" FontFamily="Times New Roman"/>
+                <Separator Background="Black" Height="2" Margin="0,5"/>
+                <Label Content="Settings" HorizontalAlignment="Center" FontSize="16" FontFamily="Times New Roman"/>
+                <Button x:Name="Menu_Options_Btn" Content="Options (Incomplete)" Click="Menu_Options_Btn_Click"
                         Margin="4,2" Padding="3" FontFamily="Times New Roman"/>
             </StackPanel>
         </Border>

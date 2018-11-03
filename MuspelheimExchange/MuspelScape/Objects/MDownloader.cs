@@ -12,11 +12,23 @@ namespace MuspelScape.Objects
         public static string GetJSON(string url)
         {
             string result = null;
-            using (WebClient wc = new WebClient())
+            try
             {
-                result = wc.DownloadString(url);
+                using (WebClient wc = new WebClient())
+                {
+                    result = wc.DownloadString(url);
+                }
+            }
+            catch (WebException)
+            {
+                result = null;
             }
             return result;
+        }
+
+        public static void UpdateItemsOfflineJSON()
+        {
+            //todo
         }
     }
 }

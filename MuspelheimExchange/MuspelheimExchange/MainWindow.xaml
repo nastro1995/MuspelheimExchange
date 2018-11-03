@@ -23,7 +23,7 @@
                               Background="DarkGray"/>
                     <MenuItem x:Name="Bar_Search_Btn" Header="Search" Click="Bar_Search_Btn_Click"
                               Background="DarkGray"/>
-                    <MenuItem x:Name="Bar_BrowseCata_Btn" Header="Browse Catalogue" Click="Bar_BrowseCata_Btn_Click"
+                    <MenuItem x:Name="Bar_BrowseCata_Btn" Header="Browse Catalogue (Incomplete)" Click="Bar_BrowseCata_Btn_Click"
                               Background="DarkGray"/>
                 </MenuItem>
                 <MenuItem Header="Settings" Margin="6,1" Padding="6,1" Background="DarkGray" 

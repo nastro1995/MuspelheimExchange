@@ -58,6 +58,18 @@ namespace MuspelheimExchange
             }
         }
 
+        public void OpenOptionsDialog()
+        {
+            OptionsWindow optionsW = new OptionsWindow(this);
+            if (optionsW.ShowDialog() == true)
+            {
+                /* Todo:
+                 * -create a few basic options
+                 * -options load from dialog window
+                 */
+            }
+        }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Navigate(new DashboardPage(this));
@@ -80,14 +92,7 @@ namespace MuspelheimExchange
 
         private void Bar_Settings_Options_Btn_Click(object sender, RoutedEventArgs e)
         {
-            OptionsWindow optionsW = new OptionsWindow(this);
-            if (optionsW.ShowDialog() == true)
-            {
-                /* Todo:
-                 * -create a few basic options
-                 * -options load from dialog window
-                 */
-            }
+            OpenOptionsDialog();
         }
 
         private void Bar_ShowHide_Btn_Click(object sender, RoutedEventArgs e)
