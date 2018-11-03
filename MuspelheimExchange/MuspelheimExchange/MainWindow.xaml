@@ -32,7 +32,7 @@
                 </MenuItem>
             </Menu>
         </Border>
-        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="2" Background="Azure">
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="2">
             <Frame x:Name="Root_Frame" NavigationUIVisibility="Hidden"/>
         </Border>
     </Grid>
