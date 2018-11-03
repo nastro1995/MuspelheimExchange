@@ -71,5 +71,21 @@ namespace MuspelheimExchange
                  */
             }
         }
+
+        private void Bar_ShowHide_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Bar_ShowHide_Btn.IsChecked == true)
+            {
+                Bar_ShowHide_Btn.Content = @"\/";
+                Bar_Border.Visibility = Visibility.Collapsed;
+                Bar_ShowHide_Btn.ToolTip = "Show Bar";
+            }
+            else
+            {
+                Bar_ShowHide_Btn.Content = @"/\";
+                Bar_Border.Visibility = Visibility.Visible;
+                Bar_ShowHide_Btn.ToolTip = "Hide Bar";
+            }
+        }
     }
 }

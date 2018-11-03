@@ -11,9 +11,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="2"
+        <Border x:Name="Bar_Border" Grid.Row="0" BorderBrush="Black" BorderThickness="2"
                 Padding="4,2" Background="DarkGray">
             <Menu Background="LightGray" Padding="2,4">
                 <MenuItem Header="Menu" Margin="6,1" Padding="6,1" Background="DarkGray" 
@@ -32,7 +33,9 @@
                 </MenuItem>
             </Menu>
         </Border>
-        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="2">
+        <ToggleButton Grid.Row="1" x:Name="Bar_ShowHide_Btn" Content="/\" Click="Bar_ShowHide_Btn_Click" 
+                      IsChecked="False" FontSize="6" FontWeight="Bold" ToolTip="Hide Bar"/>
+        <Border Grid.Row="2" BorderBrush="Black" BorderThickness="2">
             <Frame x:Name="Root_Frame" NavigationUIVisibility="Hidden"/>
         </Border>
     </Grid>
