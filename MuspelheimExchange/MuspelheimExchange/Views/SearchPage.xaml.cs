@@ -48,6 +48,7 @@ namespace MuspelheimExchange.Views
         {
             ItemInfos = GE.GetBasicItemsInfo();
             ResetDisplay(1);
+            RootWindow.ToggleBarState(false);
         }
 
         private void ResetDisplay(int sortMode = 0)

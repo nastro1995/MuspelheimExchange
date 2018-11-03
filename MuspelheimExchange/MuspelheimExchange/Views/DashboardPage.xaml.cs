@@ -31,7 +31,7 @@ namespace MuspelheimExchange.Views
 
         private void DashboardPage_Loaded(object sender, RoutedEventArgs e)
         {
-
+            RootWindow.ToggleBarState(true);
         }
 
         private void Menu_Navigate_Search_Btn_Click(object sender, RoutedEventArgs e)

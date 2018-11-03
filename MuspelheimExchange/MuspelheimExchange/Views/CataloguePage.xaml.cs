@@ -31,7 +31,7 @@ namespace MuspelheimExchange.Views
 
         private void CataloguePage_Loaded(object sender, RoutedEventArgs e)
         {
-
+            RootWindow.ToggleBarState(false);
         }
     }
 }
