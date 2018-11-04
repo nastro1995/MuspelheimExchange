@@ -84,15 +84,15 @@ namespace MuspelheimExchange.Views
             {
                 if (searchMode == "Contains")
                 {
-                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input)));
+                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input.ToLower())));
                 }
                 else if (searchMode == "StartsWith")
                 {
-                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().StartsWith(input)));
+                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().StartsWith(input.ToLower())));
                 }
                 else if (searchMode == "Exact")
                 {
-                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower() == input));
+                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower() == input.ToLower()));
                 }
                 if (sortMode >= 0 && sortMode <= 2)
                 {

@@ -23,11 +23,11 @@
             <ComboBox x:Name="Search_Mode"/>
             <Button x:Name="Search_btn" Content="Search" IsDefault="True" Click="Search_btn_Click"/>
         </StackPanel>
-        <Menu Grid.Row="0" Grid.Column="1" Padding="5,2">
+        <WrapPanel Grid.Row="0" Grid.Column="1">
             <Button x:Name="Sort_None_Btn" Content="Clear Sorting" Click="Sort_None_Btn_Click" Padding="4,2"/>
             <Button x:Name="Sort_Name_Asc_Btn" Content="Sort By Name Ascending" Click="Sort_Name_Asc_Btn_Click" Padding="4,2"/>
             <Button x:Name="Sort_Name_Desc_Btn" Content="Sort By Name Descending" Click="Sort_Name_Desc_Btn_Click" Padding="4,2"/>
-        </Menu>
+        </WrapPanel>
         <ListView x:Name="Display" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" MouseDoubleClick="Display_MouseDoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
