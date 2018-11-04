@@ -72,9 +72,9 @@ namespace MuspelScape
         //    return result;
         //}
 
-        public static CatalogueView GetCatalogue(int category, char startChar, int page)
+        public static CatalogueView GetCatalogue(ItemCategories category, char startChar, int page)
         {
-            string url = CatalogueUrl(category, startChar, page);
+            string url = CatalogueUrl((int)category, startChar, page);
             CatalogueView result = null;
             string json = MDownloader.GetJSON(url);
             if (json != null)
@@ -83,6 +83,17 @@ namespace MuspelScape
                 {
                     result = JsonConvert.DeserializeObject<CatalogueView>(json);
                 }
+            }
+            return result;
+        }
+
+        public static List<ItemCategories> GetItemCategories()
+        {
+            List<ItemCategories> result = new List<ItemCategories>();
+            string[] categories_raw = Enum.GetNames(typeof(ItemCategories));
+            foreach (string _category in categories_raw)
+            {
+                result.Add((ItemCategories)Enum.Parse(typeof(ItemCategories), _category));
             }
             return result;
         }

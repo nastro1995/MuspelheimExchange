@@ -36,31 +36,34 @@ namespace MuspelheimExchange.Views
         private void CataloguePage_Loaded(object sender, RoutedEventArgs e)
         {
             RootWindow.ToggleBarState(false);
+            LoadCategoriesComboBox();
         }
 
-        private void ViewCatalogue_Raw(string category, string startChar, string pageNumber)
+        private void LoadCategoriesComboBox()
+        {
+            Category_Input.ItemsSource = GE.GetItemCategories();
+        }
+
+        private void ViewCatalogue_Raw(ItemCategories category, string startChar, string pageNumber)
         {
             ClearDisplay();
             char? _startChar = null;
             if (startChar != "")
             {
-                if (int.TryParse(category, out int _category))
+                if (int.TryParse(pageNumber, out int _page))
                 {
-                    if (int.TryParse(pageNumber, out int _page))
+                    if (startChar.Length == 1)
                     {
-                        if (startChar.Length == 1)
-                        {
-                            _startChar = Convert.ToChar(startChar);
-                        }
-                        else
-                        {
-                            _startChar = Convert.ToChar(startChar.Substring(0, 1));
-                        }
-                        Catalogue = GE.GetCatalogue(_category, (char)_startChar, _page);
-                        if (Catalogue != null)
-                        {
-                            ResetDisplay(1);
-                        }
+                        _startChar = Convert.ToChar(startChar);
+                    }
+                    else
+                    {
+                        _startChar = Convert.ToChar(startChar.Substring(0, 1));
+                    }
+                    Catalogue = GE.GetCatalogue(category, (char)_startChar, _page);
+                    if (Catalogue != null)
+                    {
+                        ResetDisplay(1);
                     }
                 }
             }
@@ -104,7 +107,10 @@ namespace MuspelheimExchange.Views
 
         private void GetCatalogue_Btn_Click(object sender, RoutedEventArgs e)
         {
-            ViewCatalogue_Raw(Category_Input.Text, StartingChar_Input.Text, PageNum_Input.Text);
+            if (Category_Input.SelectedItem is ItemCategories category)
+            {
+                ViewCatalogue_Raw(category, StartingChar_Input.Text, PageNum_Input.Text);
+            }
         }
     }
 }

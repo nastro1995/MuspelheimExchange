@@ -47,8 +47,15 @@ namespace MuspelheimExchange.Views
         private void SearchPage_Loaded(object sender, RoutedEventArgs e)
         {
             ItemInfos = GE.GetBasicItemsInfo();
-            ResetDisplay(1);
+            ResetDisplay(0);
             RootWindow.ToggleBarState(false);
+            Search_Mode.ItemsSource = new List<string>()
+            {
+                "Contains",
+                "StartsWith",
+                "Exact"
+            };
+            Search_Mode.SelectedIndex = 0;
         }
 
         private void ResetDisplay(int sortMode = 0)
@@ -70,18 +77,60 @@ namespace MuspelheimExchange.Views
             }
         }
 
+        private void Search_Item(string input, int sortMode = 0)
+        {
+            List<Basic_ItemInfo> searchResults = null;
+            if (Search_Mode.SelectedItem is string searchMode)
+            {
+                if (searchMode == "Contains")
+                {
+                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input)));
+                }
+                else if (searchMode == "StartsWith")
+                {
+                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().StartsWith(input)));
+                }
+                else if (searchMode == "Exact")
+                {
+                    searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower() == input));
+                }
+                if (sortMode >= 0 && sortMode <= 2)
+                {
+                    if (sortMode == 0)
+                    {
+                        Display.ItemsSource = searchResults;
+                    }
+                    else if (sortMode == 1)
+                    {
+                        Display.ItemsSource = searchResults.OrderBy(i => i.Name);
+                    }
+                    else if (sortMode == 2)
+                    {
+                        Display.ItemsSource = searchResults.OrderByDescending(i => i.Name);
+                    }
+                }
+            }
+        }
+
+        private void Search_Using_Input(int sortMode = 0)
+        {
+            if (Search_Input.Text is string input && input != "")
+            {
+                Search_Item(input, sortMode);
+            }
+        }
+
         private void Search_btn_Click(object sender, RoutedEventArgs e)
         {
             if (Search_Input.Text is string input)
             {
                 if (input != "")
                 {
-                    List<Basic_ItemInfo> searchResults = new List<Basic_ItemInfo>(ItemInfos.Where(i => i.Name.ToLower().Contains(input)));
-                    Display.ItemsSource = searchResults;
+                    Search_Item(input);
                 }
                 else
                 {
-                    ResetDisplay(1);
+                    ResetDisplay();
                 }
             }
         }
@@ -91,7 +140,7 @@ namespace MuspelheimExchange.Views
             if (Search_Input.Text is string input
                 && input == "")
             {
-                ResetDisplay(1);
+                ResetDisplay();
             }
         }
 
@@ -105,6 +154,24 @@ namespace MuspelheimExchange.Views
                 };
                 iw.Show();
             }
+        }
+
+        private void Sort_None_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            ResetDisplay();
+            Search_Using_Input();
+        }
+
+        private void Sort_Name_Asc_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            ResetDisplay(1);
+            Search_Using_Input(1);
+        }
+
+        private void Sort_Name_Desc_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            ResetDisplay(2);
+            Search_Using_Input(2);
         }
     }
 }

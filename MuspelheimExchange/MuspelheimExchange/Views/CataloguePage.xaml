@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <Label Content="Category:"/>
-            <TextBox x:Name="Category_Input"/>
+            <ComboBox x:Name="Category_Input"/>
             <Label Content="Starting Character:"/>
             <TextBox x:Name="StartingChar_Input"/>
             <Label Content="Page Number (max is 12):"/>
