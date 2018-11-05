@@ -57,6 +57,10 @@ namespace MuspelScape
                     result = GetBasicItemsInfo();
                 }
             }
+            catch (ArgumentNullException)
+            {
+                result = GetBasicItemsInfo();
+            }
             return result;
         }
 
