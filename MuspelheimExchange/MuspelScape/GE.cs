@@ -16,6 +16,7 @@ namespace MuspelScape
 {
     public class GE
     {
+        private const string OSRS_ItemDb_LastUpdatedUrl = "https://secure.runescape.com/m=itemdb_oldschool/api/info.json";
         private const string BaseUrl = "http://services.runescape.com/m=itemdb_oldschool";
         private const string BasicItemsIdUrl = "https://pastebin.com/raw/LhxJ7GRG/Objects_87.json";
         private const string ItemUrl = "/api/catalogue/detail.json?item=";
@@ -106,6 +107,20 @@ namespace MuspelScape
             if (json.Length > 0)
             {
                 result = JsonConvert.DeserializeObject<GraphView>(json);
+            }
+            return result;
+        }
+
+        public static RuneDate GetDbLastUpdated()
+        {
+            RuneDate result = null;
+            string json = MDownloader.GetJSON(OSRS_ItemDb_LastUpdatedUrl);
+            if (json != null)
+            {
+                if (json.Length > 0)
+                {
+                    result = JsonConvert.DeserializeObject<RuneDate>(json);
+                }
             }
             return result;
         }

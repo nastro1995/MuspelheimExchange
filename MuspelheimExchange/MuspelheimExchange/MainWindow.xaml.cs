@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MuspelheimExchange.Views;
 using MuspelheimExchange.Windows;
+using MuspelScape;
+using MuspelScape.Models;
+using Newtonsoft.Json;
 
 namespace MuspelheimExchange
 {

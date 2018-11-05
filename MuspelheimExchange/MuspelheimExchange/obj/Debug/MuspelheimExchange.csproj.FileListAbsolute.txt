@@ -50,3 +50,5 @@ C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\Muspelhei
 C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Views\DashboardPage.baml
 C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Windows\OptionsWindow.g.cs
 C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\Windows\OptionsWindow.baml
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\MuspelheimExchange.exe.config

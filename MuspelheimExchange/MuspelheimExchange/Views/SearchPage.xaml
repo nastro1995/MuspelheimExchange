@@ -28,7 +28,8 @@
             <Button x:Name="Sort_Name_Asc_Btn" Content="Sort By Name Ascending" Click="Sort_Name_Asc_Btn_Click" Padding="4,2"/>
             <Button x:Name="Sort_Name_Desc_Btn" Content="Sort By Name Descending" Click="Sort_Name_Desc_Btn_Click" Padding="4,2"/>
         </WrapPanel>
-        <ListView x:Name="Display" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" MouseDoubleClick="Display_MouseDoubleClick">
+        <ListView x:Name="Display" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" MouseDoubleClick="Display_MouseDoubleClick"
+                  Margin="0,0,5,5">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}"/>
