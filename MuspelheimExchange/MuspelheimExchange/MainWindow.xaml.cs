@@ -25,6 +25,7 @@ namespace MuspelheimExchange
     {
         public MainWindow()
         {
+            //
             InitializeComponent();
             MDownloader.UpdateItemsOfflineJSON();
             Loaded += MainWindow_Loaded;
