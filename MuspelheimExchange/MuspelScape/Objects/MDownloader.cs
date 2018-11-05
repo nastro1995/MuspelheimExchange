@@ -1,4 +1,5 @@
-﻿using MuspelScape.Models.Items;
+﻿using MuspelScape.Models;
+using MuspelScape.Models.Items;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -31,20 +32,21 @@ namespace MuspelScape.Objects
 
         public static void UpdateItemsOfflineJSON()
         {
-            double data_new_Updated = 20.20;//GE.GetCurrentRuneDate
-            bool isNewDataOld = false;
+            RuneDate latestRuneDate = GE.GetDbLastUpdated();
+            double data_new_LastUpdated = latestRuneDate.LastConfigUpdateRuneday;
+            bool isDataOld = true;
             if (File.Exists(AppFoldersAndFiles.ItemsJsonPath))
             {
                 string json_old = File.ReadAllText(AppFoldersAndFiles.ItemsJsonPath);
                 if (json_old != "")
                 {
                     OfflineBasicItemsData data_old = JsonConvert.DeserializeObject<OfflineBasicItemsData>(json_old);
-                    isNewDataOld = data_new_Updated > data_old.LastUpdated;
+                    isDataOld = (data_new_LastUpdated > data_old.LastUpdated);
                 }
             }
-            if (isNewDataOld)
+            if (isDataOld)
             {
-                OfflineBasicItemsData data_new = new OfflineBasicItemsData(data_new_Updated, GE.GetBasicItemsInfo());
+                OfflineBasicItemsData data_new = new OfflineBasicItemsData(data_new_LastUpdated, GE.GetBasicItemsInfo());
                 string json_new = JsonConvert.SerializeObject(data_new);
                 AppFoldersAndFiles.ItemJsonCreate(json_new);
             }

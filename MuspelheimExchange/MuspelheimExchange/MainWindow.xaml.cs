@@ -25,9 +25,10 @@ namespace MuspelheimExchange
     {
         public MainWindow()
         {
-            //
             InitializeComponent();
-            MDownloader.UpdateItemsOfflineJSON();
+            //MDownloader.UpdateItemsOfflineJSON();
+            //OfflineBasicItemsData offlineBasicItems = AppFoldersAndFiles.ReadOfflineItemsJson();
+            AppFoldersAndFiles.CreateFolders();
             Loaded += MainWindow_Loaded;
         }
 

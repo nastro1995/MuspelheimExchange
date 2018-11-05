@@ -31,14 +31,18 @@ namespace MuspelScape
             Raw_Item result_raw = null;
             Item result = null;
             string json = MDownloader.GetJSON(url);
-            if (json.Length > 0)
+            if (json != null)
             {
-                result_raw = JsonConvert.DeserializeObject<Raw_Item>(json);
-                if (result_raw != null)
+                if (json.Length > 0)
                 {
-                    result = result_raw.Item;
+                    result_raw = JsonConvert.DeserializeObject<Raw_Item>(json);
+                    if (result_raw != null)
+                    {
+                        result = result_raw.Item;
+                    }
                 }
             }
+            else {/*load offline data if any, else error*/ }
             return result;
         }
 
@@ -52,20 +56,29 @@ namespace MuspelScape
             }
             catch (WebException)
             {
-                MessageBoxResult mbResult = MessageBox.Show("Error retrieving items, press 'Yes' to retry.", "Error!", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.Yes);
+                MessageBoxResult mbResult = MessageBox.Show(
+                    "Error retrieving items, press 'Yes' to retry,\n 'No' will try to use offline data if any.", 
+                    "Error!", MessageBoxButton.YesNo, MessageBoxImage.Asterisk, MessageBoxResult.Yes
+                );
                 if (mbResult == MessageBoxResult.Yes)
                 {
                     result = GetBasicItemsInfo();
                 }
+                else if (mbResult == MessageBoxResult.No)
+                {
+                    OfflineBasicItemsData offlineItems = AppFoldersAndFiles.ReadOfflineItemsJson();
+                    result = offlineItems.Items;
+                }
             }
             catch (ArgumentNullException)
             {
-                result = GetBasicItemsInfo();
+                OfflineBasicItemsData offlineItems = AppFoldersAndFiles.ReadOfflineItemsJson();
+                result = offlineItems.Items;
             }
             return result;
         }
 
-        //hidden, long load on slow internet, allot of data!
+        //long load, allot of data!
         //public static List<Item> GetItems()
         //{
         //    List<Item> result = new List<Item>();
@@ -103,17 +116,18 @@ namespace MuspelScape
             return result;
         }
 
-        public static GraphView GetGraph(int itemId)
-        {
-            string url = GraphUrl(itemId);
-            GraphView result = null;
-            string json = MDownloader.GetJSON(url);
-            if (json.Length > 0)
-            {
-                result = JsonConvert.DeserializeObject<GraphView>(json);
-            }
-            return result;
-        }
+        //GraphView object needs work
+        //public static GraphView GetGraph(int itemId)
+        //{
+        //    string url = GraphUrl(itemId);
+        //    GraphView result = null;
+        //    string json = MDownloader.GetJSON(url);
+        //    if (json.Length > 0)
+        //    {
+        //        result = JsonConvert.DeserializeObject<GraphView>(json);
+        //    }
+        //    return result;
+        //}
 
         public static RuneDate GetDbLastUpdated()
         {

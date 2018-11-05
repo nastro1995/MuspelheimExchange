@@ -80,3 +80,5 @@ C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimE
 C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\MuspelheimExchange.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\MuspelheimExchange.exe
 C:\Users\User\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\MuspelheimExchange.pdb
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Nastro\Documents\GitHub\MuspelheimExchange\MuspelheimExchange\MuspelheimExchange\obj\Debug\MuspelheimExchange.exe.config
