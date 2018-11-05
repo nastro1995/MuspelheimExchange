@@ -23,12 +23,32 @@ namespace MuspelheimExchange
     {
         private Item CurrentItem { get; set; }
         private Basic_ItemInfo Item_Info { get; set; }
+        private Item Item { get; set; }
 
         public ItemWindow(Basic_ItemInfo item_info)
         {
             InitializeComponent();
             Item_Info = item_info;
+            Item = null;
             Loaded += ItemWindow_Loaded;
+        }
+
+        public ItemWindow(Item item)
+        {
+            InitializeComponent();
+            Item_Info = null;
+            Item = item;
+            Loaded += ItemWindow_Loaded;
+        }
+
+        private void LoadItem(Item item)
+        {
+            if (item != null)
+            {
+                Title += " - " + item.Name;
+                Icon = new BitmapImage(new Uri(item.Icon));
+                Item_Grid.DataContext = item;
+            }
         }
 
         private void ItemWindow_Loaded(object sender, RoutedEventArgs e)
@@ -36,12 +56,12 @@ namespace MuspelheimExchange
             if (Item_Info != null)
             {
                 CurrentItem = GE.GetItem(Item_Info.Id);
-                if (CurrentItem != null)
-                {
-                    Title += " - " + CurrentItem.Name;
-                    Icon = new BitmapImage(new Uri(CurrentItem.Icon));
-                    Item_Grid.DataContext = CurrentItem;
-                }
+                LoadItem(CurrentItem);
+            }
+            else if (Item != null)
+            {
+                CurrentItem = Item;
+                LoadItem(CurrentItem);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuspelheimExchange.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,22 @@ namespace MuspelheimExchange.Views
 
         private void DashboardPage_Loaded(object sender, RoutedEventArgs e)
         {
+            RootWindow.ToggleBarState(true);
+        }
 
+        private void Menu_Navigate_Search_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            RootWindow.Navigate(new SearchPage(RootWindow));
+        }
+
+        private void Menu_Navigate_Catalogues_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            RootWindow.Navigate(new CataloguePage(RootWindow));
+        }
+
+        private void Menu_Options_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            RootWindow.OpenOptionsDialog();
         }
     }
 }

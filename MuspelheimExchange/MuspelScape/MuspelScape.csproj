@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="GE.cs" />
     <Compile Include="Models\Catalogue\CatalogueView.cs" />
+    <Compile Include="Models\Catalogue\ItemCategories.cs" />
     <Compile Include="Models\Graphs\GraphView.cs" />
     <Compile Include="Models\Items\Basic_ItemInfo.cs" />
     <Compile Include="Models\Items\Current.cs" />
