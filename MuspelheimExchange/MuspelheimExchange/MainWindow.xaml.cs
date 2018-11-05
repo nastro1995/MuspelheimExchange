@@ -14,9 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MuspelheimExchange.Views;
 using MuspelheimExchange.Windows;
-using MuspelScape;
-using MuspelScape.Models;
-using Newtonsoft.Json;
+using MuspelScape.Objects;
 
 namespace MuspelheimExchange
 {
@@ -27,7 +25,9 @@ namespace MuspelheimExchange
     {
         public MainWindow()
         {
+            //
             InitializeComponent();
+            MDownloader.UpdateItemsOfflineJSON();
             Loaded += MainWindow_Loaded;
         }
 

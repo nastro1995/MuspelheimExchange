@@ -58,7 +58,9 @@
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Items\Raw_Item.cs" />
     <Compile Include="Models\Items\Today.cs" />
+    <Compile Include="Objects\AppFoldersAndFiles.cs" />
     <Compile Include="Objects\MDownloader.cs" />
+    <Compile Include="Objects\OfflineBasicItemsData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
