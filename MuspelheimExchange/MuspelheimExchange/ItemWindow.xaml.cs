@@ -66,7 +66,10 @@ namespace MuspelheimExchange
                 {
                     if (!File.Exists(AppFoldersAndFiles.ItemsCachePath))
                     {
-                        CachedItems.Items.Add(item);
+                        if (!CachedItems.Items.Any(i => i.Id == item.Id))
+                        {
+                            CachedItems.Items.Add(item);
+                        }
                         string json = JsonConvert.SerializeObject(CachedItems);
                         AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json);
                     }
@@ -74,10 +77,13 @@ namespace MuspelheimExchange
                     {
                         string json = File.ReadAllText(AppFoldersAndFiles.ItemsCachePath);
                         OfflineViewedItems data = JsonConvert.DeserializeObject<OfflineViewedItems>(json);
-                        data.Items.Add(item);
-                        CachedItems = data;
-                        string json_new = JsonConvert.SerializeObject(CachedItems);
-                        AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json_new);
+                        if (!data.Items.Any(i => i.Id == item.Id))
+                        {
+                            data.Items.Add(item);
+                            CachedItems = data;
+                            string json_new = JsonConvert.SerializeObject(CachedItems);
+                            AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json_new);
+                        }
                     }
                 }
             }

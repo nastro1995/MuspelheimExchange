@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MuspelheimExchange.Views;
 using MuspelheimExchange.Windows;
+using MuspelScape;
 using MuspelScape.Objects;
 
 namespace MuspelheimExchange
@@ -23,12 +24,19 @@ namespace MuspelheimExchange
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool ClearItemsCacheOnStart { get; set; }
+
         public MainWindow()
         {
+            ClearItemsCacheOnStart = false;
             InitializeComponent();
             //MDownloader.UpdateItemsOfflineJSON();
             //OfflineBasicItemsData offlineBasicItems = AppFoldersAndFiles.ReadOfflineItemsJson();
             AppFoldersAndFiles.CreateFolders();
+            if (ClearItemsCacheOnStart)
+            {
+                AppFoldersAndFiles.ClearItemsCache();
+            }
             Loaded += MainWindow_Loaded;
         }
 

@@ -11,18 +11,23 @@ namespace MuspelScape.Objects
     public static class AppFoldersAndFiles
     {
         #region Folder Paths
-        public static string AppPath = AppDomain.CurrentDomain.BaseDirectory;
-        public static string AppDataPath = Path.Combine(AppPath, "Data");
-        public static string DataOfflinePath = Path.Combine(AppDataPath, "Offline-Data");
-        public static string OfflineCachePath = Path.Combine(AppDataPath, "Cache");
+        public static string AppPath = AppDomain.CurrentDomain.BaseDirectory;//bin
+        public static string AppDataPath = Path.Combine(AppPath, "Data");//bin/Data
+        public static string DataOfflinePath = Path.Combine(AppDataPath, "Offline-Data");//bin/Data/Offline-Data
+        public static string OfflineCachePath = Path.Combine(AppDataPath, "Cache");//bin/Data/Cache
         #endregion
         #region Item Paths
-        public static string ItemsJsonPath = Path.Combine(DataOfflinePath, "items-basic.json");
-        public static string ItemsCachePath = Path.Combine(OfflineCachePath, "viewed-items.json");
+        public static string ItemsJsonPath = Path.Combine(DataOfflinePath, "items-basic.json");//../Offline-Data/items-basic.json
+        public static string ItemsCachePath = Path.Combine(OfflineCachePath, "viewed-items.json");//../Cache/viewed-items.json
         #endregion
 
         public static void CreateFolders()
         {
+            /* Creates:
+             * bin/Data/
+             * bin/Data/Offline-Data/
+             * bin/Data/Cache/
+             */
             FolderCreate(AppDataPath);
             FolderCreate(DataOfflinePath);
             FolderCreate(OfflineCachePath);
@@ -51,7 +56,23 @@ namespace MuspelScape.Objects
         {
             string json = File.ReadAllText(ItemsJsonPath);
             return JsonConvert.DeserializeObject<OfflineBasicItemsData>(json);
-        } 
+        }
+
+        public static void ItemsCacheAppend(string json)
+        {
+            FileCreate(ItemsCachePath, json);
+        }
+
+        public static OfflineViewedItems ReadItemsCacheFile()
+        {
+            string json = File.ReadAllText(ItemsCachePath);
+            return JsonConvert.DeserializeObject<OfflineViewedItems>(json);
+        }
+
+        public static void ClearItemsCache()
+        {
+            FileCreate(ItemsCachePath, "");
+        }
         #endregion
     }
 }
