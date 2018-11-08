@@ -61,6 +61,7 @@
     <Compile Include="Objects\AppFoldersAndFiles.cs" />
     <Compile Include="Objects\MDownloader.cs" />
     <Compile Include="Objects\OfflineBasicItemsData.cs" />
+    <Compile Include="Objects\OfflineViewedItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

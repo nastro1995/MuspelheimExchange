@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ using MuspelScape.Models;
 using MuspelScape.Models.Catalogue;
 using MuspelScape.Models.Graphs;
 using MuspelScape.Models.Items;
+using MuspelScape.Objects;
+using Newtonsoft.Json;
 
 namespace MuspelheimExchange.Views
 {

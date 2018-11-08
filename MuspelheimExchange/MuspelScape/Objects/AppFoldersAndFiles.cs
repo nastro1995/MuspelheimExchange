@@ -14,15 +14,18 @@ namespace MuspelScape.Objects
         public static string AppPath = AppDomain.CurrentDomain.BaseDirectory;
         public static string AppDataPath = Path.Combine(AppPath, "Data");
         public static string DataOfflinePath = Path.Combine(AppDataPath, "Offline-Data");
+        public static string OfflineCachePath = Path.Combine(AppDataPath, "Cache");
         #endregion
         #region Item Paths
-        public static string ItemsJsonPath = Path.Combine(DataOfflinePath, "items-basic.json"); 
+        public static string ItemsJsonPath = Path.Combine(DataOfflinePath, "items-basic.json");
+        public static string ItemsCachePath = Path.Combine(OfflineCachePath, "viewed-items.json");
         #endregion
 
         public static void CreateFolders()
         {
             FolderCreate(AppDataPath);
             FolderCreate(DataOfflinePath);
+            FolderCreate(OfflineCachePath);
         }
 
         public static void FolderCreate(string path)

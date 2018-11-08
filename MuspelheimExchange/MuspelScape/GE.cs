@@ -11,6 +11,7 @@ using MuspelScape.Objects;
 using MuspelScape.Models.Catalogue;
 using MuspelScape.Models.Graphs;
 using System.Windows;
+using System.IO;
 
 namespace MuspelScape
 {
@@ -42,7 +43,10 @@ namespace MuspelScape
                     }
                 }
             }
-            else {/*load offline data if any, else error*/ }
+            else
+            {
+
+            }
             return result;
         }
 
@@ -73,7 +77,30 @@ namespace MuspelScape
             catch (ArgumentNullException)
             {
                 OfflineBasicItemsData offlineItems = AppFoldersAndFiles.ReadOfflineItemsJson();
-                result = offlineItems.Items;
+                string json = File.ReadAllText(AppFoldersAndFiles.ItemsCachePath);
+                if (json.Length > 0)
+                {
+                    OfflineViewedItems offlineCacheData = JsonConvert.DeserializeObject<OfflineViewedItems>(json);
+                    if (offlineCacheData != null)
+                    {
+                        if (offlineCacheData.Items != null)
+                        {
+                            if (offlineCacheData.Items.Count > 0)
+                            {
+                                List<Basic_ItemInfo> cacheList = new List<Basic_ItemInfo>();
+                                foreach (Item item in offlineCacheData.Items)
+                                {
+                                    cacheList.Add(new Basic_ItemInfo() { Id = item.Id, Name = item.Name });
+                                }
+                                result = cacheList;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        result = offlineItems.Items;
+                    }
+                }
             }
             return result;
         }
