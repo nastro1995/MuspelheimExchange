@@ -12,80 +12,108 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Margin="5" BorderBrush="Gray" BorderThickness="1">
+        <Border Grid.Row="0" Margin="5" BorderBrush="Gray" BorderThickness="4,2">
             <StackPanel>
                 <WrapPanel>
-                    <TextBlock Text="Name:" Margin="0,0,4,0"/>
-                    <TextBlock Text="{Binding Name}"/>
+                    <TextBlock Text="Name:" Margin="0,0,4,0" 
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Name}" FontFamily="Lucida Console" FontSize="14"/>
                 </WrapPanel>
                 <Image Source="{Binding Icon}" Height="50" Stretch="Uniform"/>
                 <WrapPanel>
-                    <TextBlock Text="Type:" Margin="0,0,4,0"/>
-                    <TextBlock Text="{Binding Type}"/>
+                    <TextBlock Text="Type:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Type}" FontFamily="Lucida Console" FontSize="14"/>
                     <Image Source="{Binding TypeIcon}" Height="20" Stretch="Uniform"/>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock Text="Description:" Margin="0,0,4,0"/>
-                    <TextBlock Text="{Binding Description}"/>
+                    <TextBlock Text="Description:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Description}" FontFamily="Lucida Console" FontSize="14"/>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock Text="Member:" Margin="0,0,4,0"/>
-                    <TextBlock Text="{Binding Members}"/>
+                    <TextBlock Text="Member:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Members}" FontFamily="Lucida Console" FontSize="14"/>
                 </WrapPanel>
-                <StackPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Current Trend:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Current.Trend}"/>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Current Price:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Current.Price}"/>
-                    </WrapPanel>
-                </StackPanel>
-                <StackPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Today Trend:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Today.Trend}"/>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Today Price:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Today.Price}"/>
-                    </WrapPanel>
-                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <StackPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Current Trend:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Current.Trend}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Current Price:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Current.Price}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <StackPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Today Trend:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Today.Trend}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Today Price:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Today.Price}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </Border>
-        <Border Grid.Row="1" Margin="5" BorderBrush="Gray" BorderThickness="1">
+        <Border Grid.Row="1" Margin="5" BorderBrush="Gray" BorderThickness="2,4"
+                HorizontalAlignment="Center">
             <StackPanel>
-                <StackPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Day 30 Trend:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Day30.Trend}"/>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Day 30 Change:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Day30.Change}"/>
-                    </WrapPanel>
-                </StackPanel>
-                <StackPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Day 90 Trend:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Day90.Trend}"/>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Day 90 Change:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Day90.Change}"/>
-                    </WrapPanel>
-                </StackPanel>
-                <StackPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Day 180 Trend:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Day180.Trend}"/>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Day 180 Change:" Margin="0,0,4,0"/>
-                        <TextBlock Text="{Binding Day180.Change}"/>
-                    </WrapPanel>
-                </StackPanel>
+                <Border BorderBrush="Black" BorderThickness="6,3">
+                    <StackPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Day 30 Trend:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Day30.Trend}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                        <Separator/>
+                        <WrapPanel>
+                            <TextBlock Text="Day 30 Change:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Day30.Change}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="6,3">
+                    <StackPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Day 90 Trend:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Day90.Trend}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                        <Separator/>
+                        <WrapPanel>
+                            <TextBlock Text="Day 90 Change:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Day90.Change}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="6,3">
+                    <StackPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Day 180 Trend:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Day180.Trend}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                        <Separator/>
+                        <WrapPanel>
+                            <TextBlock Text="Day 180 Change:" Margin="0,0,4,0"
+                               FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Day180.Change}" FontFamily="Lucida Console" FontSize="14"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </Border>
     </Grid>

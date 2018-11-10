@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Objects\Options.cs" />
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>

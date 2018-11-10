@@ -12,13 +12,14 @@ namespace MuspelScape.Objects
     {
         #region Folder Paths
         public static string AppPath = AppDomain.CurrentDomain.BaseDirectory;//bin
-        public static string AppDataPath = Path.Combine(AppPath, "Data");//bin/Data
-        public static string DataOfflinePath = Path.Combine(AppDataPath, "Offline-Data");//bin/Data/Offline-Data
-        public static string OfflineCachePath = Path.Combine(AppDataPath, "Cache");//bin/Data/Cache
+        public static string AppDataPath = Path.Combine(AppPath, "Data");//~/Data
+        public static string DataOfflinePath = Path.Combine(AppDataPath, "Offline-Data");//~/Data/Offline-Data
+        public static string OfflineCachePath = Path.Combine(AppDataPath, "Cache");//~/Data/Cache
         #endregion
         #region Item Paths
-        public static string ItemsJsonPath = Path.Combine(DataOfflinePath, "items-basic.json");//../Offline-Data/items-basic.json
-        public static string ItemsCachePath = Path.Combine(OfflineCachePath, "viewed-items.json");//../Cache/viewed-items.json
+        public static string ItemsJsonPath = Path.Combine(DataOfflinePath, "items-basic.json");//~/Data/Offline-Data/items-basic.json
+        public static string ItemsCachePath = Path.Combine(OfflineCachePath, "viewed-items.json");//~/Data/Cache/viewed-items.json
+        public static string OptionsJsonPath = Path.Combine(AppDataPath, "options.json");//~/Data/options.json
         #endregion
 
         public static void CreateFolders()
@@ -47,6 +48,16 @@ namespace MuspelScape.Objects
         }
 
         #region Item Methods
+        public static void OptionsFileCreate(string json)
+        {
+            FileCreate(OptionsJsonPath, json);
+        }
+
+        public static string ReadOptionsFile()
+        {
+            return File.ReadAllText(OptionsJsonPath);
+        }
+
         public static void ItemJsonCreate(string json_data)
         {
             FileCreate(ItemsJsonPath, json_data);

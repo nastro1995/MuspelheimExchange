@@ -27,13 +27,17 @@ namespace MuspelheimExchange
         private Item CurrentItem { get; set; }
         private Basic_ItemInfo Item_Info { get; set; }
         private Item Item { get; set; }
-        public OfflineViewedItems CachedItems { get; set; }
 
         public bool IsCachingItemsEnabled { get; set; }//to be added to options as a setting for user.
 
-        public ItemWindow(Basic_ItemInfo item_info)
+        public ItemWindow(Basic_ItemInfo item_info, bool useOptions = false)
         {
             InitializeComponent();
+            if (useOptions)
+            {
+                //while online and viewing a item, save its data for offline use, if set to true
+                IsCachingItemsEnabled = true;//to be loaded from settings
+            }
             Item_Info = item_info;
             Item = null;
             Loaded += ItemWindow_Loaded;
@@ -62,28 +66,25 @@ namespace MuspelheimExchange
         {
             if (IsCachingItemsEnabled)
             {
-                if (CachedItems != null)
+                string json = File.ReadAllText(AppFoldersAndFiles.ItemsCachePath);
+                OfflineViewedItems data = JsonConvert.DeserializeObject<OfflineViewedItems>(json);
+                if (data != null)
                 {
-                    if (!File.Exists(AppFoldersAndFiles.ItemsCachePath))
+                    if (!data.Items.Any(i => i.Id == item.Id))
                     {
-                        if (!CachedItems.Items.Any(i => i.Id == item.Id))
-                        {
-                            CachedItems.Items.Add(item);
-                        }
-                        string json = JsonConvert.SerializeObject(CachedItems);
-                        AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json);
+                        data.Items.Add(item);
+                        string json_new = JsonConvert.SerializeObject(data);
+                        AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json_new);
                     }
-                    else
+                }
+                else
+                {
+                    data = new OfflineViewedItems();
+                    if (!data.Items.Any(i => i.Id == item.Id))
                     {
-                        string json = File.ReadAllText(AppFoldersAndFiles.ItemsCachePath);
-                        OfflineViewedItems data = JsonConvert.DeserializeObject<OfflineViewedItems>(json);
-                        if (!data.Items.Any(i => i.Id == item.Id))
-                        {
-                            data.Items.Add(item);
-                            CachedItems = data;
-                            string json_new = JsonConvert.SerializeObject(CachedItems);
-                            AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json_new);
-                        }
+                        data.Items.Add(item);
+                        string json_new = JsonConvert.SerializeObject(data);
+                        AppFoldersAndFiles.FileCreate(AppFoldersAndFiles.ItemsCachePath, json_new);
                     }
                 }
             }
@@ -94,13 +95,11 @@ namespace MuspelheimExchange
             IsCachingItemsEnabled = true;
             if (Item_Info != null)
             {
-                CachedItems = new OfflineViewedItems();
                 CurrentItem = GE.GetItem(Item_Info.Id);
                 LoadItem(CurrentItem);
             }
             else if (Item != null)
             {
-                CachedItems = new OfflineViewedItems();
                 CurrentItem = Item;
                 LoadItem(CurrentItem);
             }
